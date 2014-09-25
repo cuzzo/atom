@@ -1,0 +1,23 @@
+{
+  "name": "atom-css",
+  "description": "A server/client route-to-controller dispatcher.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/cuzzo/atom-css",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "pegjs": "0.8.0"
+  },
+  "scripts": {
+  },
+  "licenses": [
+    {
+      "type": "BSD",
+      "url": "http://opensource.org/licences/BSD-2-Clause"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cuzzo/atom-css"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  /**
+   * Makes a word from WORD BNF.
+   *
+   * @param array o
+   *   0: [A-Za-z_-]
+   *   1: Array of [A-Za-z_-] (optional)
+   *   @see WORD
+   *
+   * @return string
+   *   The plaintext word.
+   */
+  function make_word(o) {
+    if (o.length === 1) return o[0];
+    return o[0] + o[1].join("");
+  }
+
+  /**
+   * Makes a rule from RULE BNF.
+   *
+   * @param array o
+   *   0: Array of [\s] (optional)
+   *   1: WORD
+   *   2: TERMINAL
+   *   3: Array of [\s] (optional)
+   *   @see RULE
+   *
+   * @return string
+   *   The plaintext rule name.
+   */
+  function make_rule(o) {
+    if (Array.isArray(o[0])) o.shift();
+    if (Array.isArray(o[o.length - 1])) o.pop();
+    o.pop(); // Get rid of TERMINAL.
+    return o;
+  }
+
+  /**
+   * Makes a block start from BLOCK_START BNF.
+   *
+   * @param array o
+   *   0: Array of [\s] (optional)
+   *   1: WORD
+   *   2: Array of [\s] (optional)
+   *   3: OPEN
+   *   @ SEE
+   *
+   * @return string
+   *   The plaintext block name.
+   */
+  function start_block(o) {
+    if (Array.isArray(o[0])) o.shift();
+    if (Array.isArray(o[1])) o = [o[0], o[2]]; // Get rid of middle space.
+    o.pop(); // Get rid of open.
+    return o[0];
+  }
+
+  /**
+   * Makes a block end from BLOCK_END BNF.
+   *
+   * @param o
+   *   0: Array of [\s] (optional)
+   *   1: BLOCK_CLOSE
+   *   @see BLOCK_END
+   *
+   * @return string
+   *   "end"
+   */
+  function end_block(o) {
+    return "end";
+  }
+}
+
+start
+  = BLOCK*
+
+BLOCK
+  = BLOCK_START RULE* BLOCK_END
+
+BLOCK_START
+  = open:(WHITESPACE* WORD WHITESPACE* OPEN) { return start_block(open); }
+
+BLOCK_END
+  = end:(CLOSE WHITESPACE*) { return end_block(end); }
+
+RULE
+  = rule:(WHITESPACE* WORD TERMINAL WHITESPACE*) { return make_rule(rule); }
+  / BLOCK
+
+WORD
+  = chars:([A-Za-z_-][A-Za-z0-9_-]*) { return make_word(chars); }
+
+WHITESPACE
+  = spaces:[ \t\n]
+
+OPEN
+  = open:[{]
+
+CLOSE
+  = close:[}]
+
+TERMINAL
+  = term:[;]
