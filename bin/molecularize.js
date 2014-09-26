@@ -5,4 +5,4 @@ var translate = require("../atom").translate,
     fname = process.argv[2],
     atom = fs.readFileSync(fname, "utf8");
 
-console.log(translate(atom));
+console.log(JSON.stringify(translate(atom)));
