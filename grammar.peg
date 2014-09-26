@@ -4,7 +4,7 @@
    *
    * @param array o
    *   0: [A-Za-z_-]
-   *   1: Array of [A-Za-z_-] (optional)
+   *   1: Array of [A-Za-z0-9_-] (optional)
    *   @see WORD
    *
    * @return string
@@ -69,26 +69,82 @@
   function end_block(o) {
     return "end";
   }
+
+  /**
+   * Makes a parenthetic from PARENTHETIC BNF.
+   *
+   * @param o
+   *   0: OPEN_PAREN
+   *   1: WORD
+   *   2: CLOSE_PAREN
+   *   @see PARENTHETIC
+   *
+   * @return string
+   *   A parenthetic.
+   */
+  function make_parenthetic(o) {
+    return "(" + o[1] + ")"
+  }
+
+  /**
+   * Makes a selector from SELECTOR BNF.
+   *
+   * @param o
+   *   0: WORD
+   *   1: COLON
+   *   2: WORD
+   *   3: PARENTHETIC (optional)
+   *
+   * @return string
+   *   A block word.
+   */
+  function make_selector(o) {
+    return o.join("");
+  }
+
+  /**
+   * Makes an expression from EXPRESSION BNF.
+   *
+   * @param o
+   *   0: Array of [A-Za-z0-9\s\t+/*_-]
+   *
+   * @return string
+   *   A block word.
+   */
+  function make_expression(o) {
+    return o.join("");
+  }
 }
 
 start
   = BLOCK*
 
-BLOCK
+BLOCK "block"
   = BLOCK_START RULE* BLOCK_END
 
-BLOCK_START
-  = open:(WHITESPACE* WORD WHITESPACE* OPEN) { return start_block(open); }
+BLOCK_START "block name"
+  = open:(WHITESPACE* SELECTOR WHITESPACE* OPEN) { return start_block(open); }
 
-BLOCK_END
+BLOCK_END "block end"
   = end:(CLOSE WHITESPACE*) { return end_block(end); }
 
-RULE
+RULE "rule"
   = rule:(WHITESPACE* WORD TERMINAL WHITESPACE*) { return make_rule(rule); }
   / BLOCK
 
-WORD
+WORD "word"
   = chars:([A-Za-z_-][A-Za-z0-9_-]*) { return make_word(chars); }
+
+SELECTOR "selector"
+  = block_word:(WORD COLON WORD PARENTHETIC) { return make_selector(block_word); }
+  / block_word:(WORD COLON WORD) { return make_selector(block_word); }
+  / WORD
+
+EXPRESSION "EXPRESSION"
+  = chars:([A-Za-z0-9+ \t/*_-]+) { return make_expression(chars); }
+
+PARENTHETIC "parenthetic"
+  = parenthetic:(OPEN_PAREN EXPRESSION CLOSE_PAREN) { return make_parenthetic(parenthetic); }
 
 WHITESPACE
   = spaces:[ \t\n]
@@ -101,3 +157,12 @@ CLOSE
 
 TERMINAL
   = term:[;]
+
+COLON
+  = colon:[:]
+
+OPEN_PAREN
+  = open_paren:[(]
+
+CLOSE_PAREN
+  = close_paren:[)]
