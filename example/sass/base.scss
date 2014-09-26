@@ -1,0 +1,17 @@
+@import "_variables";
+@import "_mixins";
+
+body {
+  line-height: $lineHeight-default;
+  font-face: $font-stack;
+}
+
+[role~=button] {
+  @include border_radius($radius-default);
+  border: $light-border;
+  padding: $spacing-small;
+}
+
+input {
+  padding: $spacing-small;
+}

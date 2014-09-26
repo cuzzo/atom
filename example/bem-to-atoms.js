@@ -13,12 +13,14 @@ var atomize = function() {
           atomize_class(classes[j])
         );
     }
-    el.className = transformed_classes.join(" ");
+    for (var j = 0; j < transformed_classes.length; j++) {
+      el.classList.add(transformed_classes[j]);
+    }
   }
 };
 
 var atomize_class = function(bem_class) {
-  return RULES[bem_class];
+  return MOLECULES[bem_class];
 };
 
 document.addEventListener("DOMContentLoaded", function() {

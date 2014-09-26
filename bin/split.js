@@ -5,4 +5,4 @@ var split = require("../src/atom-sass").split,
     fname = process.argv[2],
     molecules = JSON.parse(fs.readFileSync(fname, "utf8"));
 
-console.log(split(molecules));
+console.log(split(molecules).join("\n"));

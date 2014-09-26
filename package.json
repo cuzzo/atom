@@ -4,9 +4,14 @@
   "version": "0.0.1",
   "homepage": "https://github.com/cuzzo/atom-css",
   "dependencies": {
+    "pegjs": "0.8.0"
   },
   "devDependencies": {
-    "pegjs": "0.8.0"
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.7",
+    "grunt-contrib-sass": "~0.7.4",
+    "q": "~1.0.1",
+    "underscore": "~1.6.0"
   },
   "scripts": {
   },

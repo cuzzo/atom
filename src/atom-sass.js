@@ -11,7 +11,7 @@ var split = function(molecules) {
 
 var molecule_to_sass = function(molecule_name, atoms) {
   atoms = atoms.map(function(atom) {
-    return "@extend " + atom + ";";
+    return "@extend ." + atom + ";";
   });
   return "." + molecule_name + " { " + atoms.join(" ") + " }";
 };

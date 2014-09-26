@@ -1,0 +1,26 @@
+@import "_variables";
+@import "_mixins";
+
+.painted-light-grey {
+  background-color: $light-grey;
+}
+
+.painted-light-yellow {
+  background-color: $light-yellow;
+}
+
+.painted-blue {
+  background-color: $blue;
+}
+
+.rounded-default {
+  @include border_radius($radius-small);
+}
+
+.font-small {
+  font-size: $size-small;
+}
+
+.typography-loose {
+  line-height: $lineHeight-default;
+}

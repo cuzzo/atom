@@ -1,1 +1,4 @@
 node_modules
+example/css
+example/molecular-rules.js
+example/sass/split-molecules.scss
