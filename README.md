@@ -59,10 +59,12 @@ block {
 If you're familiar with CSS, this might look horribly ineffiecient. Don't worry, ATOM combiles this into:
 
 ```json
-{ block: [ 'atom1', 'atom2' ],
-  block__element: [ 'atom3', 'atom4' ],
-  'block__element--modifier': [ 'atom5', 'atom6' ],
-  'block--modifier2': [ 'atom7', 'atom8' ] }
+{
+  "block":["atom1","atom2"],
+  "block__element":["atom3","atom4"],
+  "block__element--modifier":["atom5","atom6"],
+  "block--modifier2":["atom7","atom8"]
+}
 ```
 
 Which if you had a template like:
