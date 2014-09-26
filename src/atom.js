@@ -1,7 +1,7 @@
 var PEG = require("pegjs"),
     fs = require("fs"),
-    grammar = fs.readFileSync("./grammar.peg", "utf8"),
-    atom = fs.readFileSync("./rules.atom", "utf8"),
+    path = require("path"),
+    grammar = fs.readFileSync(path.join(__dirname, "grammar.peg"), "utf8"),
     parser = PEG.buildParser(grammar);
 
 var COMMENT_RGX = /\/\*[^*]*\*+([^/*][^*]*\*+)*\//g,
