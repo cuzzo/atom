@@ -93,6 +93,7 @@ It would atomize into:
 
 * Once you master BEM (which is great independent of ATOM CSS), you have maintainable CSS.
 * With ATOM, your pages will render faster.
+* From a debugging standpoint, BEM names are meaningless. If something doesn't look right, the first thing you need to know is: which atoms compose this style... BEM is great for structure, but not so great for context. ATOM gives you the best of both worlds.
 
 # Caveats
 
