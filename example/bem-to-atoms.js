@@ -13,14 +13,27 @@ var atomize = function() {
           atomize_class(classes[j])
         );
     }
-    for (var j = 0; j < transformed_classes.length; j++) {
-      el.classList.add(transformed_classes[j]);
+    var class_dict = {},
+        transform_len = transformed_classes.length;
+    for (var j = 0; j < transform_len; j++) {
+      class_dict[transformed_classes[j]] = true;
+    }
+    transformed_classes = Object.keys(class_dict);
+    if (transformed_classes.length > 0) {
+      el.className = transformed_classes.join(" ");
+    }
+    else {
+      el.removeAttribute("class");
     }
   }
 };
 
 var atomize_class = function(bem_class) {
-  return MOLECULES[bem_class];
+  var classes = MOLECULES[bem_class];
+  if (SPLIT_MOLECULES[bem_class]) {
+    classes.push(bem_class);
+  }
+  return classes;
 };
 
 document.addEventListener("DOMContentLoaded", function() {
