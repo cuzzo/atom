@@ -137,7 +137,7 @@ var translate = function(atom) {
   var translator = new Translator(),
       tokenized_atom = parse(atom);
   return translator.translate(tokenized_atom);
-}
+};
 
 module.exports.parse = parse;
 module.exports.Translator = Translator;
