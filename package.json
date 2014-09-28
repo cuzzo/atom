@@ -9,9 +9,7 @@
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-cli": "~0.1.7",
-    "grunt-contrib-sass": "~0.7.4",
-    "q": "~1.0.1",
-    "underscore": "~1.6.0"
+    "grunt-contrib-sass": "~0.7.4"
   },
   "scripts": {
   },
