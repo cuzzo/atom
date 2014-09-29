@@ -68,7 +68,7 @@ If you're familiar with CSS, this might look horribly ineffiecient. Don't worry,
   "block__element":["atom3","atom4"],
   "block__element--modifier":["atom5","atom6"],
   "block--modifier2":["atom7","atom8"],
-  "block__element:nth-child(2n + 1):["atom9"]
+  "block__element:nth-child(2n + 1)":["atom9"]
 }
 ```
 
