@@ -12,7 +12,7 @@ If you believe that CSS works, has no problems, and is totally maintainable, ATO
 
 ATOM is developed to work with BEM, so if you've found BEM to be suitably insufficient for your project, it's probably not for you. That being said, ATOM works with any CSS naming-convention. It works best with nested naming conventions.
 
-Presently, you'd be insane to use ATOM if you don't have a single set of templates for your entire app and a uniform way to display (or, in interview-keywords: a single page app).
+Presently, you'd be insane to use ATOM if you don't have a single set of templates for your entire app and a uniform way to display them (or, in interview-keywords: a single page app).
 
 Presently, you'd be insane to use ATOM at all. It's a working draft and more of a thought expirement. Eventually, I do believe a better library will exist that sits between your CSS atoms and molecules. But ATOM is not perfect; it's not ideal; and it's hardly even usable. It's more of an excuse to write a programming language than anything. And also to draw attention to better developers that something like this *might* be useful in a more general way.
 
