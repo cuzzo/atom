@@ -9,7 +9,8 @@
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-cli": "~0.1.7",
-    "grunt-contrib-sass": "~0.7.4"
+    "grunt-contrib-sass": "~0.7.4",
+    "mocha": "1.21.4"
   },
   "scripts": {
   },

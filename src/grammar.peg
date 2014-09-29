@@ -126,7 +126,7 @@ BLOCK_START "block name"
   = open:(WHITESPACE* SELECTOR WHITESPACE* OPEN) { return start_block(open); }
 
 BLOCK_END "block end"
-  = end:(CLOSE WHITESPACE*) { return end_block(end); }
+  = end:(WHITESPACE* CLOSE WHITESPACE*) { return end_block(end); }
 
 RULE "rule"
   = rule:(WHITESPACE* WORD TERMINAL WHITESPACE*) { return make_rule(rule); }
