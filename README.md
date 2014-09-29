@@ -14,7 +14,7 @@ ATOM is developed to work with BEM, so if you've found BEM to be suitably insuff
 
 Presently, you'd be insane to use ATOM if you don't have a single set of templates for your entire app and a uniform way to display (or, in interview-keywords: a single page app).
 
-Presently, you'd be insane to use ATOM at all. It's a working draft and more of a thought expirement. Eventually, I do believe a better library will exist that sits between your CSS atoms and molecules. But ATOM is not perfect; it's not ideal; and it's hardly even usable (it doesn't yet support CSS3 selectors, for example. But support is planned *very* soon). It's more of an excuse to write a programming language than anything. And also to draw attention to better developers that something like this *might* be useful in a more general way.
+Presently, you'd be insane to use ATOM at all. It's a working draft and more of a thought expirement. Eventually, I do believe a better library will exist that sits between your CSS atoms and molecules. But ATOM is not perfect; it's not ideal; and it's hardly even usable. It's more of an excuse to write a programming language than anything. And also to draw attention to better developers that something like this *might* be useful in a more general way.
 
 # Why The Middleman?
 
@@ -53,6 +53,10 @@ block {
     atom7;
     atom8;
   }
+
+  __element:nth-child(2n + 1) {
+    atom9;
+  }
 }
 ```
 
@@ -63,7 +67,8 @@ If you're familiar with CSS, this might look horribly ineffiecient. Don't worry,
   "block":["atom1","atom2"],
   "block__element":["atom3","atom4"],
   "block__element--modifier":["atom5","atom6"],
-  "block--modifier2":["atom7","atom8"]
+  "block--modifier2":["atom7","atom8"],
+  "block__element:nth-child(2n + 1):["atom9"]
 }
 ```
 
@@ -79,9 +84,11 @@ It would atomize into:
 
 ```html
 <div class="atom1 atom2 atom7 atom8">
-  <p class="atom3 atom4">Hello, world!</p>
+  <p class="atom3 atom4 block__element">Hello, world!</p>
 </div>
 ```
+
+Why's the `p` element still have the `block__element` attribute, you might ask? That's so CSS3 selectors still work. You need a unique identifier for this type of element for the `nth-child(2n + 1)` expression to work, so the BEM class needs to stay. All of this also means that you can't atomize CSS3-expressions. So you need to include the entire CSS definition (as you usually do with standard SASS) for CSS3-expresion-based selector rules. Which is just another reason to try to limit these as much as possible (you should be anyway).
 
 # Cons
 
