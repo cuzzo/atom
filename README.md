@@ -16,6 +16,27 @@ Presently, you'd be insane to use ATOM if you don't have a single set of templat
 
 Presently, you'd be insane to use ATOM at all. It's a working draft and more of a thought expirement. Eventually, I do believe a better library will exist that sits between your CSS atoms and molecules. But ATOM is not perfect; it's not ideal; and it's hardly even usable. It's more of an excuse to write a programming language than anything. And also to draw attention to better developers that something like this *might* be useful in a more general way.
 
+# What Are Atoms and Molecules
+
+An atom is the idea of a style. Think of an underlined atom:
+
+```css
+.underlined {
+  text-decoration: underlined;
+}
+```
+
+Okay, that looks stupid, right? Why not just write the rule? Well, there's a few reasons. But let's explore first why atoms make sense:
+
+```css
+.rounded-slightly {
+  -webkit-border-radius: 0.125em;
+  -moz-border-radius: 0.125em;
+  -ms-border-radius: 0.125em;
+  border-radius: 0.125em;
+}
+```
+
 # Why The Middleman?
 
 Isn't SASS enough?
