@@ -109,7 +109,7 @@ It would atomize into:
 </div>
 ```
 
-Why's the `p` element still have the `block__element` attribute, you might ask? That's so CSS3 selectors still work. You need a unique identifier for this type of element for the `nth-child(2n + 1)` expression to work, so the BEM class needs to stay. All of this also means that you can't atomize CSS3-expressions. So you need to include the entire CSS definition (as you usually do with standard SASS) for CSS3-expresion-based selector rules. Which is just another reason to try to limit these as much as possible (you should be anyway).
+Why's the `p` element still have the `block__element` attribute, you might ask? That's so CSS pseduo-classes still work. You need a unique identifier for this type of element for the `nth-child(2n + 1)` expression to work, so the BEM class needs to stay. All of this also means that you can't atomize pseduo-classes. So you need to include the entire CSS definition (as you usually do with standard SASS) for pseudo-class selector rules. Which is just another reason to try to limit these as much as possible (you should be anyway).
 
 # Cons
 
