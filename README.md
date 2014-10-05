@@ -1,6 +1,6 @@
 # ATOM CSS
 
-The world's shittiest programming language, because [BEM](https://bem.info/method/ "BEM CSS") wasn't confusing enough already.
+A [BEM](https://bem.info/method/ "BEM CSS")-based domain-specific language, because BEM wasn't confusing enough already.
 
 # Usage
 
@@ -12,9 +12,9 @@ If you believe that CSS works, has no problems, and is totally maintainable, ATO
 
 ATOM is developed to work with BEM, so if you've found BEM to be suitably insufficient for your project, it's probably not for you. That being said, ATOM works with any CSS naming-convention. It works best with nested naming conventions.
 
-Presently, you'd be insane to use ATOM if you don't have a single set of templates for your entire app and a uniform way to display them (or, in interview-keywords: a single page app).
+Presently, you'd be insane to use ATOM if you don't have a single set of templates for your entire app and a uniform way to display them (or, in interview-initialism keywords: an SPA, a single-page app).
 
-Presently, you'd be insane to use ATOM at all. It's a working draft and more of a thought expirement. Eventually, I do believe a better library will exist that sits between your CSS atoms and molecules. But ATOM is not perfect; it's not ideal; and it's hardly even usable. It's more of an excuse to write a programming language than anything. And also to draw attention to better developers that something like this *might* be useful in a more general way.
+Presently, I wouldn't recommend ATOM at all. It's a working draft and more of a thought expirement. Eventually, I do believe a better *thing* will exist that sits between your CSS atoms and molecules. But ATOM is not perfect; it's not ideal; and it's utility is limited. It's more to draw attention to better developers that something like this *might* be useful in a more general way.
 
 # What Are Atoms and Molecules
 
@@ -36,6 +36,8 @@ Okay, that looks stupid, right? Why not just write the rule? Well, there's a few
   border-radius: 0.125em;
 }
 ```
+
+Atoms are subjective. You might have an atom for each font-face, for each size, etc. Or you might have an atom for each use-case of font: `font-legal`, `font-title`, `font-subtitle`, which consist of faces, sizes, colors, decorations and so on. You might have both. It's up to you. And you'll notice it's really pretty similar to what you're already doing with SASS/LESS and `@include`s.
 
 # Why The Middleman?
 
